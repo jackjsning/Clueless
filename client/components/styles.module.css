@@ -1,0 +1,423 @@
+
+.grid {
+    display: flex;
+    display: grid;
+    grid-template-columns: 120px 140px 120px 140px 120px;
+    grid-gap: 0;
+    flex-shrink: 0;
+}
+
+
+.empty{
+    display: flex;
+    width: 120px;
+    height: 120px;
+    background-color: white;
+}
+
+.player {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: green; 
+    border-radius: 50%; 
+    align-items: center;
+    justify-content: center;
+    font-size: '4px';
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+.text {
+    margin: auto;
+    }
+
+.popup_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* semi-transparent black overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    
+.popup_container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    }
+    
+.close_button {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px
+    }
+
+.quiz_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    
+.options_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 300px; /* Adjust as needed */
+    margin: 5px;
+    }
+    
+.option_label {
+    margin: 10px; /* Adjust as needed */
+    }
+
+
+  .game_status {
+    display: inline-block;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    padding: 0.4rem 0.8rem;
+    vertical-align: middle;
+    margin-left: 20px;
+    font-size: 12px; /* Decrease the font size */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use a more energetic font */
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .game_status:hover {
+    background-color: #e6e6e6;
+  }
+
+  .notification {
+    display: inline-block;
+    border: 1px solid rgb(239, 230, 230);
+    padding: 0.8rem;
+    vertical-align: middle;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 0 0 8px 8px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease-in-out;
+    height: 80px
+  }
+  
+  .notification_header {
+    margin-left: 20px;
+    background-color: rgb(125, 182, 204);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .notification_content {
+    padding: 1rem;
+  }
+  
+  .notification:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .notification.visible {
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 3px;
+    width: 40px; /* Increase width for more space */
+    height: 50px; /* Increase height for more space */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    font-size: 10px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    word-wrap: break-word;
+    flex-wrap: wrap;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Add a slight scale on hover for an interactive feel */
+  }
+  
+  .card-content {
+    padding: 16px;
+  }
+  
+  .card-header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 8px;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .card-body {
+    padding: 16px;
+  }
+  
+  .card-footer {
+    background-color: #eee;
+    padding: 8px;
+    border-radius: 0 0 8px 8px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .room {
+    display: flex;
+    width: 120px; /* Increase width for more space */
+    height: 120px; /* Increase height for more space */
+    background-color: grey; /* Dark background color for a gaming feel */
+    align-items: center;
+    justify-content: center;
+    font-size: 12px; /* Increase font size for better visibility */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff; /* Text color for better contrast */
+    border-radius: 12px; /* Rounded corners for a softer look */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add a subtle box shadow */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .room:hover {
+    transform: scale(1.05); /* Add a slight scale on hover for an interactive feel */
+  }
+  
+  .room-content {
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .room-header {
+    background-color: #3498db; /* Blue header color */
+    color: #fff;
+    padding: 8px;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .room-body {
+    padding: 16px;
+  }
+  
+  .room-footer {
+    background-color: #ecf0f1; /* Light footer color */
+    padding: 8px;
+    border-radius: 0 0 12px 12px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .vhallway {
+    display: flex;
+    width: 60px;
+    height: 140px;
+    background-color: #d8eaf6; 
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px; /* Add rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    flex-shrink: 0;
+  }
+  
+  .vhallway:hover {
+    transform: scale(1.05); /* Add a slight scale on hover for an interactive feel */
+  }
+  
+  .hhallway {
+    display: flex;
+    width: 140px;
+    height: 60px;
+    background-color: #d8eaf6;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    flex-shrink: 0;
+  }
+  
+  .hhallway:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Add this for a dashed border effect */
+  .vhallway::before,
+  .hhallway::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px dashed #fff; /* White dashed border */
+    box-sizing: border-box;
+  }
+
+.header {
+background-color: #fff; /* Blue background */
+padding: 4px;
+text-align: center;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(249, 248, 248, 0.2);
+}
+
+.title {
+margin-top: 20px;
+font-size: 26px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+color: #303131; 
+font-weight: bold;
+}
+  
+.byline {
+font-size: 14px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+color: #303131; 
+font-style: italic;
+margin-bottom: 0px;
+}
+
+.button {
+  background-color: rgb(90, 169, 201); /* Example color */
+  color: #fff; /* Example text color */
+  font-size: 12px;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px
+  /* Add additional styles as needed */
+}
+
+.button:hover {
+  background-color: rgb(54, 192, 247); /* Example color on hover */
+}
+
+.button:disabled {
+  background-color: #ddd; /* Grey color for disabled state */
+  color: #666; /* Darker text color for disabled state */
+  cursor: not-allowed; /* Change cursor to not-allowed for disabled state */
+}
+
+.messageBox {
+  font-size: 12px; 
+  word-wrap: break-word;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-y: auto; 
+  transform: translateX(-70%);
+  width: 200px; /* Adjust the width as needed */
+  height: 300px; /* Adjust the height as needed */
+  background-color: rgb(212, 221, 228);
+  border: 1px solid #dddcdc;
+  padding: 20px;
+  border-radius: 8px 8px 0px 0px;
+  
+}
+.chatInput {
+  margin: 0px; /* Adjust the margin as needed */
+  display: 'flex';
+  flex-direction: 'row';
+  border: none;
+  outline: none;
+  padding: 0px;
+}
+
+.inputField {
+  border: 1px solid #dddcdc;
+  outline: none;
+  padding: 4px;
+  margin-right: 0px;
+  margin-left: -140px;
+  font-size: 14px;
+  width: 200px;
+}
+
+.chat_button {
+  background-color: rgb(90, 169, 201); /* Example color */
+  color: #fff; /* Example text color */
+  font-size: 12px;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0px
+  /* Add additional styles as needed */
+}
+.minimizeButton:hover {
+  background-color: rgb(79, 173, 209); /* Example color on hover */
+}
+
+.minimizeButton {
+  cursor: pointer;
+  background-color: rgb(199, 202, 203);
+  font-size: 20px;
+  margin: 0px;
+  border: none;
+  border-radius: 4px;
+  width:30px;
+  padding: 0;
+  transition: background-color 0.3s ease;
+  margin-top: 0px
+}
+.minimized {
+  height: 40px; /* Set the height when minimized */
+  overflow: hidden;
+}
+.minimizeButton:hover {
+  background-color: rgb(90, 201, 127); /* Example color on hover */
+}
+
+.winner_scene {
+  font-size: 20px;
+  font-weight: bold;
+  width: 400px;
+  height: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: rgba(250, 250, 250, 0.7);
+  padding: 80px;
+  border-radius: 8px;
+}

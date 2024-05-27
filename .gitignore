@@ -1,0 +1,4 @@
+client/node_modules/
+client/.next/
+server/__pycache__/
+node_modules/
